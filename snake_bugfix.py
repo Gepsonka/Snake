@@ -30,15 +30,6 @@ class body():
 
 
 
-
-
-
-
-
-
-
-
-
 def redefinegamewindow():
     win.fill((255,255,255))
 
