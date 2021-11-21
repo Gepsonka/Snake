@@ -45,12 +45,8 @@ def redefinegamewindow():
     pygame.display.update()
 
 
-#objects
-#lead=body(0,0,45,45,50,(255,255,255))
 food=body(100,100,45,45,0,(255,255,0))
 
-
-#variables
 i=0
 right=True
 left=False
@@ -58,9 +54,6 @@ up=False
 down=False
 bodyparts=[[0,0]]
 foodcoordinates=list(range(0,401,50))
-
-
-#bodyparts.append([lead.x,lead.y])
 
 run=True
 while run:
