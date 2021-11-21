@@ -6,9 +6,12 @@ import sys
 from multiprocessing import Manager
 import multiprocessing as mp
 
+
+manager=Manager()
+mp_list=manager.list()
+
+
 pygame.init()
-
-
 winX=600
 winY=600
 score=0

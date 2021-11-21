@@ -15,13 +15,15 @@ class GestureRecognition():
     hands = mp.solutions.hands.Hands(max_num_hands=1, min_detection_confidence=0.7)
     mpDraw = mp.solutions.drawing_utils
     model = load_model('mp_hand_gesture')
-    def __init__(self):
+    def __init__(self,manager):
         with open('gesture.names', 'r') as f:
             self.classNames = f.read().split('\n')
+
+        self.manager=manager
     
     def start_video_cap(self):
         self.cap=cv2.VideoCapture(0)
-    def processing_loop(self,manager=0):
+    def processing_loop(self):
         
         while True:
             _, frame = self.cap.read()
@@ -58,6 +60,8 @@ class GestureRecognition():
                     classID = np.argmax(prediction)
                     className = self.classNames[classID]
                     print(className)
+                    if className!='':
+                        self.manager['0']=className
 
             # show the prediction on the frame
             cv2.putText(frame, className, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 
@@ -77,3 +81,7 @@ class GestureRecognition():
         self.processing_loop()
         self.exit_processing()
 
+
+def start_recognition(manager):
+    x=GestureRecognition(manager)
+    x.start_gesture_detection()
