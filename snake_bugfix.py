@@ -3,6 +3,8 @@
 import pygame
 from random import randint
 import sys
+from multiprocessing import Manager
+import multiprocessing as mp
 
 pygame.init()
 

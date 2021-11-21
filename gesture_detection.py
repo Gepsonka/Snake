@@ -4,19 +4,27 @@ import numpy as np
 import mediapipe as mp
 from tensorflow.keras.models import load_model
 
+
+# up: thumbs up
+# down: thumbs down
+# right: peace
+# left: okay
+# stop: stop
 class GestureRecognition():
     mpHands = mp.solutions.hands
-    hands = mp.solutions.hands.Hands(max_num_hands=1, min_detection_confidence=0.75)
+    hands = mp.solutions.hands.Hands(max_num_hands=1, min_detection_confidence=0.7)
     mpDraw = mp.solutions.drawing_utils
     model = load_model('mp_hand_gesture')
-    def init(self):
+    def __init__(self):
         with open('gesture.names', 'r') as f:
             self.classNames = f.read().split('\n')
     
-    def processing_loop(self):
-        cap=cv2.VideoCapture(0)
+    def start_video_cap(self):
+        self.cap=cv2.VideoCapture(0)
+    def processing_loop(self,manager=0):
+        
         while True:
-            _, frame = cap.read()
+            _, frame = self.cap.read()
 
             x, y, c = frame.shape
 
@@ -29,7 +37,7 @@ class GestureRecognition():
 
             # print(result)
         
-            self.className = ''
+            className = ''
 
             if result.multi_hand_landmarks:
                 landmarks = []
@@ -48,10 +56,11 @@ class GestureRecognition():
                     prediction = self.model.predict([landmarks])
                     # print(prediction)
                     classID = np.argmax(prediction)
-                    self.className = self.classNames[classID]
+                    className = self.classNames[classID]
+                    print(className)
 
             # show the prediction on the frame
-            cv2.putText(frame, self.className, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 
+            cv2.putText(frame, className, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 
                         1, (0,0,255), 2, cv2.LINE_AA)
 
             # Show the final output
@@ -64,6 +73,7 @@ class GestureRecognition():
         cv2.destroyAllWindows()
 
     def start_gesture_detection(self):
+        self.start_video_cap()
         self.processing_loop()
         self.exit_processing()
 
