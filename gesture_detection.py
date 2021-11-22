@@ -24,7 +24,6 @@ class GestureRecognition():
     def start_video_cap(self):
         self.cap=cv2.VideoCapture(0)
     def processing_loop(self):
-        
         while True:
             _, frame = self.cap.read()
 
@@ -36,8 +35,6 @@ class GestureRecognition():
 
             # Get hand landmark prediction
             result = self.hands.process(framergb)
-
-            # print(result)
         
             className = ''
 
@@ -66,8 +63,6 @@ class GestureRecognition():
             # show the prediction on the frame
             cv2.putText(frame, className, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 
                         1, (0,0,255), 2, cv2.LINE_AA)
-
-            # Show the final output
             cv2.imshow("Output", frame) 
 
             if cv2.waitKey(1) == ord('q'):

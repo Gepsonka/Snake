@@ -9,7 +9,7 @@ def main():
     x.start()
     x.join()
 
-    print(li["0"])
+    print(li)
 
 
 if __name__=="__main__":
