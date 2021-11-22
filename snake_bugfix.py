@@ -2,11 +2,17 @@
 #SNAKE
 import pygame
 from random import randint
-import sys
 from multiprocessing import Manager
 import multiprocessing as mp
 from gesture_detection import start_recognition
 
+class GameWindow:
+    def __init__(self) -> None:
+        pass
+    def init_game_win(self):
+        pass
+    def start_game(self):
+        pass
 
 
 def main():
