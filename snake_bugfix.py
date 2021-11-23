@@ -1,18 +1,8 @@
-#!/usr/bin/env python3
-#SNAKE
 import pygame
 from random import randint
 from multiprocessing import Manager
 import multiprocessing as mp
 from gesture_detection import start_recognition
-
-class GameWindow:
-    def __init__(self) -> None:
-        pass
-    def init_game_win(self):
-        pass
-    def start_game(self):
-        pass
 
 
 def main():
@@ -21,7 +11,7 @@ def main():
     shared_dict=manager.dict()
     shared_dict['0']=''
     gesture_rec_proc=mp.Process(target=start_recognition,args=(shared_dict,))
-    gesture_rec_proc.start()
+    #gesture_rec_proc.start()
     # rest is game
     pygame.init()
     winX=600
