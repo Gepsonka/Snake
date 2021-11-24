@@ -77,6 +77,4 @@ class GestureRecognition():
         self.exit_processing()
 
 
-def start_recognition(manager):
-    x=GestureRecognition(manager)
-    x.start_gesture_detection()
+
