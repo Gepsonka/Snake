@@ -53,14 +53,14 @@ Set snake's direction to left.
 
 ####Thumbs up
 
-![thumbs up](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Thumbs-up-icon.svg/1638px-Thumbs-up-icon.svg.png)
+![thumbs up](https://www.nicepng.com/png/detail/7-74503_free-image-on-pixabay-youtube-thumbs-up-png.png)
 
 Set snake's direction upwards
 
 
 ####Thumbs down
 
-![thumbs down](https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Symbol_thumbs_down.svg/1200px-Symbol_thumbs_down.svg.png)
+![thumbs down](https://jf-staeulalia.pt/img/other/66/collection-thumbs-down-cliparts-31.png)
 
 Set snake's direction downwards
 
@@ -69,4 +69,4 @@ Set snake's direction downwards
 
 I know... the implementation of the program is terrible.
 
-The original plan was to start in two different processes the gesture detection and the game and give them a shared object so they can communicate with each other. But the problem is with this idea is that the pygame.Surface object is unpickleable which is a problem because if a process is made with the multiprocessing module, the process's object needs to be pickled to make the processes be able to communicate with each other (brief explanation...I do not want to go into the details)  so I started the gesture recognition processe inside th Game class which is a terrible practice but the only way to make this thing work (or as it seems, and I do not want to deal with the lowest-level stuff like forking/spawning processes and configuring them, because it would make even harder to deal with the shared data).
+The original plan was to start in two different processes the gesture detection and the game and give them a shared object so they can communicate with each other. But the problem with this idea is that the pygame.Surface object is unpickleable which is a problem because if a process is made with the multiprocessing module, the process's object needs to be pickled to make the processes be able to communicate with each other (brief explanation...I do not want to go into the details)  so I started the gesture recognition processe inside th Game class which is a terrible practice but the only way to make this thing work (or as it seems, and I do not want to deal with the lowest-level stuff like forking/spawning processes and configuring them, because it would make even harder to deal with the shared data).
