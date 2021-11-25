@@ -24,8 +24,8 @@ After you started it wait for both the game and gesture recognition to start, th
 
 ###How to play
 
-You can control the game with either the arrow
-keys or the corresponding gestures.
+You can control the game either with the arrow
+keys or with the corresponding gestures.
 
 The goal is to reach a good score.
 
